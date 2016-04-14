@@ -1,0 +1,31 @@
+﻿@model List<WebApplication1.Models.Image>
+@{
+    ViewBag.Title = "Gallery";
+}
+
+<h2>Gallery</h2>
+
+<br />
+<br />
+<form action="@Url.Action("Upload","Home")" method="post" enctype="multipart/form-data">
+    <input type="file" id="upload" name="upload" />
+    <br />
+    <input type="submit" class="btn btn-warning" value="Enviar" />
+</form>
+
+@if(Model != null)
+{
+    <div class="container">
+        @foreach(var image in Model)
+        { 
+            <div class="row">
+                <a class="image" data-name="@image.ToString()" href="#"><img src="@image.Url" alt="@image.ToString()" /></a>
+            </div>
+        }
+    </div>
+    
+}
+
+@section scripts{
+    <script src="~/Scripts/app.js"></script>
+}
