@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<nav class="navbar">
+    <a class="btn btn-danger" href="@Url.Action("Gallery","Home")">Galeria de Imagens</a>
+</nav>
+
+<form action="@Url.Action("Template", "Home")" method="post">
+    <div class="container">
+        <textarea id="emailTemplate" name="emailTemplate"></textarea>
+    </div>
+
+    <br />
+    <div >
+        <input type="submit" class="btn btn-primary" value="Gerar Template" />
+    </div>
+</form>
+
+@section scripts{    
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+} 
